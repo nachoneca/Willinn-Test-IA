@@ -18,29 +18,6 @@ Puedes instalar las dependencias necesarias utilizando `pip`:
 pip install Flask PyPDF2 langchain langchain-community faiss-cpu
 
 ```
-Aquí tienes el archivo README.md actualizado con las instrucciones sobre cómo fue probado el proyecto utilizando Postman:
-
-markdown
-Copy code
-# Preguntas y Respuestas con Flask y LangChain
-
-Este proyecto utiliza Flask para crear una API que permite hacer preguntas sobre un documento PDF y obtener respuestas utilizando el modelo `nemotron-mini` de Ollama, LangChain y FAISS. El sistema realiza un análisis de texto del documento PDF y utiliza un modelo de lenguaje para responder preguntas basadas en el contenido de dicho documento.
-
-## Requisitos
-
-Asegúrate de tener los siguientes paquetes instalados:
-
-- `Flask` para la creación de la API.
-- `PyPDF2` para la extracción de texto desde un archivo PDF.
-- `LangChain` para el procesamiento de textos y uso de modelos de lenguaje.
-- `FAISS` para crear un índice de búsqueda basado en las embeddings generadas a partir del texto.
-- `Ollama` para interactuar con el modelo `nemotron-mini`.
-
-Puedes instalar las dependencias necesarias utilizando `pip`:
-
-```bash
-pip install Flask PyPDF2 langchain langchain-community faiss-cpu
-```
 ## Instalación y Configuración
 
 1. Instalar Ollama
