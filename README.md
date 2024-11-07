@@ -17,7 +17,7 @@ Puedes instalar las dependencias necesarias utilizando `pip`:
 ```bash
 pip install Flask PyPDF2 langchain langchain-community faiss-cpu
 
-
+```
 Aquí tienes el archivo README.md actualizado con las instrucciones sobre cómo fue probado el proyecto utilizando Postman:
 
 markdown
@@ -41,23 +41,26 @@ Puedes instalar las dependencias necesarias utilizando `pip`:
 ```bash
 pip install Flask PyPDF2 langchain langchain-community faiss-cpu
 Instalación y Configuración
+```
 1. Instalar Ollama
 Primero, debes instalar Ollama en tu máquina. Sigue las instrucciones desde la página oficial: Ollama Installation.
 
 2. Descargar el Modelo nemotron-mini
 Descarga el modelo nemotron-mini utilizando el siguiente comando:
 
-bash
+```bash
 Copy code
 ollama pull nemotron-mini
+```
 Este comando descargará el modelo nemotron-mini, que se utilizará para responder las preguntas.
 
 3. Iniciar Ollama
 Asegúrate de que Ollama esté corriendo antes de intentar hacer peticiones a la API. Ejecuta el siguiente comando para iniciar Ollama:
 
-bash
+```bash
 Copy code
 ollama start
+```
 Esto iniciará el servidor de Ollama en http://localhost:11434.
 
 4. Subir el Archivo PDF
@@ -66,13 +69,15 @@ Coloca el archivo PDF (por ejemplo, vikingos.pdf) en la carpeta PDF dentro del d
 5. Ejecutar el Servidor Flask
 Ejecuta el servidor Flask con el siguiente comando:
 
-bash
+```bash
 Copy code
 python app.py
+```
 Esto iniciará la API en http://localhost:3333.
 
-Cómo Funciona
-La aplicación permite hacer preguntas a un modelo de lenguaje entrenado en un conjunto de datos extraído de un archivo PDF. La API expone un solo endpoint:
+## Cómo Funciona
+La aplicación permite hacer preguntas a un modelo de lenguaje entrenado en un conjunto de datos 
+extraído de un archivo PDF. La API expone un solo endpoint:
 
 Endpoint: /nemotron-mini
 Método: POST
@@ -81,69 +86,35 @@ Cuerpo: El cuerpo de la solicitud debe ser un JSON que contenga la pregunta que 
 
 Ejemplo:
 
-json
-Copy code
 {
   "question": "¿Qué son los vikingos?"
 }
+
 Respuesta: La respuesta será un JSON con la respuesta generada por el modelo, basada en el contenido del PDF.
 
 Ejemplo de respuesta:
 
-json
-Copy code
 {
   "answer": "The Vikings were a group of people from the Nordic countries who traveled to other lands in search of loot."
 }
-Pruebas con Postman
+
+## Pruebas con Postman
 Este proyecto fue probado utilizando Postman para realizar solicitudes POST al endpoint /nemotron-mini y obtener respuestas basadas en el contenido del archivo PDF.
 
-Pasos para probar la API con Postman
-Abrir Postman y crear una nueva solicitud POST.
-
-Configurar la URL de la solicitud:
-
-URL: http://localhost:3333/nemotron-mini
-Método: POST
-Configurar el cuerpo de la solicitud:
-
-En el cuerpo de la solicitud, selecciona el tipo raw y el formato JSON. Luego, ingresa la siguiente pregunta como un JSON:
-
-json
-Copy code
-{
-  "question": "¿Qué son los vikingos?"
-}
-Enviar la solicitud:
-
-Haz clic en el botón Send para enviar la solicitud al servidor Flask.
-
-Obtener la respuesta:
-
-La respuesta que deberías recibir del servidor será un JSON con la respuesta generada por el modelo nemotron-mini. La respuesta esperada es la siguiente:
-
-json
-Copy code
-{
-  "answer": "The Vikings were a group of people from the Nordic countries who traveled to other lands in search of loot."
-}
 Resumen de la prueba con Postman
 Durante la prueba, se envió una solicitud POST con el siguiente JSON en el cuerpo:
 
-json
-Copy code
 {
   "question": "¿Qué son los vikingos?"
 }
 La API respondió correctamente con la siguiente respuesta:
 
-json
-Copy code
 {
   "answer": "The Vikings were a group of people from the Nordic countries who traveled to other lands in search of loot."
 }
-Estructura del Proyecto
+## Estructura del Proyecto
 app.py: El archivo principal que contiene el servidor Flask y la lógica de procesamiento.
 PDF/: Carpeta que contiene el archivo PDF que se utilizará para generar las embeddings.
-Conclusión
+
+## Conclusión
 Este proyecto proporciona una solución simple para realizar preguntas sobre documentos PDF utilizando la tecnología de procesamiento de lenguaje natural y búsqueda de similitud, integrando herramientas como Flask, LangChain, FAISS y Ollama. La API fue probada exitosamente con Postman, asegurando que las preguntas y respuestas se generen correctamente en base al contenido del archivo PDF.
