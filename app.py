@@ -8,7 +8,7 @@ from PyPDF2 import PdfReader
 
 app = Flask(__name__)
 
-llm = Ollama(model='llama3.1', base_url='http://localhost:11434')
+llm = Ollama(model='nemotron-mini', base_url='http://localhost:11434')
 
 def create_embeddings_flask(pdf_path):
     with open(pdf_path, "rb") as pdf_file:
@@ -33,7 +33,7 @@ def create_embeddings_flask(pdf_path):
 
 default_data_base = create_embeddings_flask("PDF/vikingos.pdf")
 
-@app.route("/llama3.1", methods=["POST"])
+@app.route("/nemotron-mini", methods=["POST"])
 def llama2():
     data = request.get_json()
     question = data.get("question")
